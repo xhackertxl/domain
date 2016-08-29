@@ -1,0 +1,27 @@
+#!/bin/sh
+# chkconfig: 2345 88 14
+# description: Starts and Stops the tacker daemon.
+
+
+#添加到服务开机自启动
+#sudo cat /public/doman/tacker > /etc/init.d/tacker
+
+#sudo chomd 755 /etc/init.d/tacker 
+#sudo update-rc.d tacker defaults
+#注：其中数字95是脚本启动的顺序号，按照自己的需要相应修改即可。在你有多个启动脚本，而它们之间又有先后启动的依赖关系
+#时你就知道这个数字的具体作用了。该命令的输出信息参考如下：
+while true ; do
+ #cat /public/doman/tacker > /etc/init.d/tacker
+ /public/doman/watch.sh &
+ sleep 10
+done
+exit 0
+
+#设置sudo 不需要输入密码 添加致最后
+#sudo gedit /etc/sudoers 
+#oracle ALL = NOPASSWD: ALL
+#%%admin ALL=(ALL) NOPASSWD: NOPASSWD: ALL
+
+
+#gnome-session-properties
+#将本脚本添加进开机启动
